@@ -8,9 +8,11 @@ from llama_index.retrievers.bm25 import BM25Retriever
 from llama_index.core.query_engine import RetrieverQueryEngine
 from llama_index.core.response_synthesizers import get_response_synthesizer
 from llama_index.core.query_engine import RetrieverQueryEngine
+from dotenv import load_dotenv
 
+load_dotenv()
 # Set Gemini API key
-os.environ["GOOGLE_API_KEY"] = "API_KEY"
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
 
 # Configure LLM and embeddings
 llm = Gemini(model="models/gemini-1.5-pro-latest")
